@@ -8,6 +8,8 @@ TARGET_NICE=0
 PIDS=$(ps -eo pid,args | awk '/cpu_abuser_/ {print $1}')
 
 for PID in $PIDS; do
-    # set nice value
-    renice -n $TARGET_NICE -p $PID
+    if kill -0 $PID 2>/dev/null; then
+        # Set nice value
+        renice -n $TARGET_NICE -p $PID
+    fi
 done

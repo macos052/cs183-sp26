@@ -3,7 +3,7 @@ LOGFILE="health.log"
 # Your codes here
 
 # Date and time
-echo "Date: $(date)" >> $LOGFILE
+echo "Date: $(date)" > $LOGFILE
 
 # Hostname
 echo "Hostname: $(hostname)" >> $LOGFILE

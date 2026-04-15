@@ -1,15 +1,17 @@
 #!/bin/bash
 
-TARGET_NICE=0
+TARGET_NICE=10
 
 # Your codes to renice processes
 
-# Get all cpu_abuser process IDs
-PIDS=$(ps -eo pid,args | awk '/cpu_abuser_/ {print $1}')
+while true; do
+    # Get all cpu_abuser process IDs
+    PIDS=$(ps -eo pid,args | awk '/cpu_abuser_/ {print $1}')
 
-for PID in $PIDS; do
-    if kill -0 $PID 2>/dev/null; then
-        # Set nice value
-        renice -n $TARGET_NICE -p $PID
-    fi
+    for PID in $PIDS; do
+        # set nice value
+        renice -n $TARGET_NICE -p "$PID" >/dev/null 2>&1
+    done
+
+    sleep 1
 done

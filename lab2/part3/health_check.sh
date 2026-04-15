@@ -1,5 +1,5 @@
 #!/bin/bash
-LOGFILE="health.log"
+LOGFILE="/Users/matthewacosta/cs183-sp26/lab2/part3/health.log"
 # Your codes here
 
 # Date and time

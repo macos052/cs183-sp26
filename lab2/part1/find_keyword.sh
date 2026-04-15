@@ -17,7 +17,7 @@ echo "Looking for the keywords: TODO, FIXME, STUPID"
 echo
 
 # Your codes here
-MATCHES="You should do something to output contents include STUPID in '$PROJECT_DIR'"
+MATCHES=$(grep -r "STUPID" "$PROJECT_DIR")
 # Your codes here
 
 if [ -z "$MATCHES" ]; then
@@ -28,9 +28,9 @@ else
 fi
 
 # Your codes here
-TODO_COUNT=0
-FIXME_COUNT=0
-STUPID_COUNT=0
+TODO_COUNT=$(grep -r "TODO" "$PROJECT_DIR" | wc -l)
+FIXME_COUNT=$(grep -r "FIXME" "$PROJECT_DIR" | wc -l)
+STUPID_COUNT=$(grep -r "STUPID" "$PROJECT_DIR" | wc -l)
 # Your codes here
 
 echo

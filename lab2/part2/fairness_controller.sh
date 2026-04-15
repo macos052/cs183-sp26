@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET_NICE=10
+TARGET_NICE=20
 
 # Your codes to renice processes
 
